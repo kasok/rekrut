@@ -5,8 +5,10 @@ Prerekwizyty:
 Python, Django, Django REST Framework
 
 Uruchomienie:
-cd rekrut
 
+```
+cd rekrut
 python manage.py runserver
 
 http://127.0.0.1:8888/messages/
+```
