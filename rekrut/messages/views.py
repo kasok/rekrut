@@ -21,9 +21,11 @@ class MessageViewSet(viewsets.ModelViewSet):
 #        queryset = queryset.filter(recipient=recipient)
     serializer_class = MessageSerializer
     def get_queryset(self):
-        recipient = self.request.GET['recipient']
-        return Message.objects.filter(recipient=recipient)
-
+        if 'recipient' in self.request.GET:
+            recipient = self.request.GET['recipient']
+            return Message.objects.filter(recipient=recipient)
+        else:
+            return Message.objects.all()
 
 
 def index(request):    
@@ -41,7 +43,7 @@ def read(request, id):
     except Message.DoesNotExist:
         raise Http404('Wiadomosc nie istnieje.')    
         
-    if not message.read_date:	
+    if not message.read_date:    
         message.read_date = timezone.now()
         message.save()
     else:

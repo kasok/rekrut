@@ -24,8 +24,9 @@ router.register(r'messages-api', views.MessageViewSet)
 
 
 urlpatterns = [
-	path('', include(router.urls)),
+	
     path('admin/', admin.site.urls),
 	path('messages/',include('messages.urls')),
-	path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+	path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+	path('', include(router.urls)),
 ]
