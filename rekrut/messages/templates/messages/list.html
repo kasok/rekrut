@@ -1,0 +1,13 @@
+<h1>System obsługi wiadomości</h1>
+<hr />
+<h2>Twoje wiadomości</h2>
+{% if messages_list %}
+    <ul>
+    {% for message in messages_list %}
+        <li><a href="/messages/{{ message.id }}/read">{{ message.text_short }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak nowych wiadomości.</p>
+{% endif %}
+<a href="/messages/">Powrót</a>

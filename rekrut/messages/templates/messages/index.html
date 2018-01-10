@@ -1,0 +1,18 @@
+<h1>System obsługi wiadomości</h1>
+<hr />
+<h2>Napisz wiadomość</h2>
+
+<form action="send" method="post">
+    {% csrf_token %}
+    Email:<br /><input type="text" name="recipient" /><br />
+    Treść:<br /><textarea name="text" cols="40" rows="10"></textarea><br />
+    <input type="submit" value="Wyslij" />
+
+</form>
+
+<h2>Odczytaj wiadomości</h2>
+<form action="list" method="post">
+    {% csrf_token %}
+    Email:<br /><input type="text" name="recipient" />
+    <input type="submit" value="Odczytaj" />
+</form>
