@@ -9,9 +9,24 @@ from django.shortcuts import render
 from django.utils import timezone
 
 from .models import Message
+from .serializers import MessageSerializer
 
-def index(request):
-    
+from rest_framework import viewsets, permissions, generics
+
+class MessageViewSet(viewsets.ModelViewSet): 
+    permission_classes = (permissions.IsAuthenticated,)
+    queryset = Message.objects.all()
+#    recipient = request.query_params.get('recipient', None)
+#    if username is not None:
+#        queryset = queryset.filter(recipient=recipient)
+    serializer_class = MessageSerializer
+    def get_queryset(self):
+        recipient = self.request.GET['recipient']
+        return Message.objects.filter(recipient=recipient)
+
+
+
+def index(request):    
     return render(request,'messages/index.html', {})
     
 def list(request):

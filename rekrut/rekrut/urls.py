@@ -16,7 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from rest_framework import routers
+from messages import views
+
+router = routers.DefaultRouter()
+router.register(r'messages-api', views.MessageViewSet)
+
+
 urlpatterns = [
+	path('', include(router.urls)),
     path('admin/', admin.site.urls),
 	path('messages/',include('messages.urls')),
+	path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
