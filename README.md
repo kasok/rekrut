@@ -2,7 +2,17 @@
 Zadanie rekrutacyjne.
 
 Prerekwizyty:
-Python, Django, Django REST Framework
+Python, PIP, Django, Django REST Framework
+
+
+```
+
+pip install Django 
+
+pip install djangorestframework
+pip install markdown     
+pip install django-filter
+```
 
 Uruchomienie:
 
