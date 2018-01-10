@@ -2,7 +2,7 @@
 Zadanie rekrutacyjne.
 
 Prerekwizyty:
-Python, PIP, Django, Django REST Framework
+Python (3.6), PIP, Django, Django REST Framework
 
 
 ```
